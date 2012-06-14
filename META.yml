@@ -1,0 +1,30 @@
+---
+abstract: 'minimalistic Supervisor'
+author:
+  - 'Masahiro Nagano <kazeburo {at} gmail.com>'
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+  Test::More: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 1.00'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Proclet
+no_index:
+  directory:
+    - inc
+    - t
+    - xt
+requires:
+  Data::Validator: 0
+  Log::Minimal: 0
+  Mouse: 0
+  Parallel::Prefork: 0.13
+resources:
+  license: http://dev.perl.org/licenses/
+  repository: https://github.com/kazeburo/Proclet.git
+version: 0.01
