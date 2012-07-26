@@ -7,6 +7,10 @@ if ( $? == -1 || $? >> 8 != 0 ) {
     plan skip_all => "command ps failed";
     exit;
 }
+elsif ( $ps !~ m!\b$$\b!s ) {
+    plan skip_all => "command ps failed: not contain self pid";
+    exit;
+}
 else {
     plan tests => 6;
 }
