@@ -4,6 +4,7 @@ author:
   - 'Masahiro Nagano <kazeburo {at} gmail.com>'
 build_requires:
   ExtUtils::MakeMaker: 6.36
+  Parallel::Scoreboard: 0
   Test::More: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.36
@@ -28,4 +29,4 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: https://github.com/kazeburo/Proclet.git
-version: 0.07
+version: 0.08
