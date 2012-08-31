@@ -26,7 +26,8 @@ requires:
   Log::Minimal: 0
   Mouse: 0
   Parallel::Prefork: 0.13
+  Term::ANSIColor: 0
 resources:
   license: http://dev.perl.org/licenses/
   repository: https://github.com/kazeburo/Proclet.git
-version: 0.08
+version: 0.09
