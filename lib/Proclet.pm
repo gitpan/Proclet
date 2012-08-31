@@ -17,7 +17,7 @@ subtype 'ServiceProcs'
 
 no Mouse::Util::TypeConstraints;
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 has '_services' => (
     is => 'ro',
@@ -41,6 +41,12 @@ has 'color' => (
     is => 'rw',
     isa => 'Bool',
     default => 0,
+);
+
+has 'logger' => (
+    is => 'ro',
+    isa => 'CodeRef',
+    required => 0,
 );
 
 my $rule = Data::Validator->new(
@@ -201,7 +207,11 @@ sub log_worker {
                     $prefix = colored( $prefix, $services->{$sid}->{color} ) if $self->color;
                     chomp $log;
                     chomp $log;
-                    warn  $prefix . ' ' . $log . "\n";
+                    if ( $self->logger ) {
+                        $self->logger->($prefix . ' ' . $log . "\n");
+                    } else {
+                        warn  $prefix . ' ' . $log . "\n";
+                    }
             }
             }
         }
@@ -294,6 +304,15 @@ number of seconds to deter spawning of services after a service exits abnormally
 =item color: Bool
 
 colored log (default: 0)
+
+=item logger: CodeRef
+
+  my $logger = File::RotateLogs->new(...)
+  my $proclet = Proclet->new(
+      logger => sub { $logger->print(@_) }
+  );
+  
+Sets a callback to print stdout/stderr. uses warn by default.
 
 =back
 
