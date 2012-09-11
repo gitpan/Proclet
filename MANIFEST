@@ -1,4 +1,5 @@
 .gitignore
+bin/proclet
 Changes
 inc/Module/Install.pm
 inc/Module/Install/AuthorTests.pm
@@ -8,6 +9,7 @@ inc/Module/Install/Fetch.pm
 inc/Module/Install/Makefile.pm
 inc/Module/Install/Metadata.pm
 inc/Module/Install/Repository.pm
+inc/Module/Install/Scripts.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 lib/Proclet.pm
@@ -17,6 +19,8 @@ META.yml
 README
 t/00_compile.t
 t/01_run.t
+t/30proclet/01_basic.t
+t/30proclet/procfile/Procfile
 xt/01_podspell.t
 xt/02_perlcritic.t
 xt/03_pod.t

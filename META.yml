@@ -23,11 +23,13 @@ no_index:
     - xt
 requires:
   Data::Validator: 0
+  Getopt::Compact::WithCmd: 0.2
   Log::Minimal: 0
   Mouse: 0
   Parallel::Prefork: 0.13
   Term::ANSIColor: 0
+  YAML::XS: 0.38
 resources:
   license: http://dev.perl.org/licenses/
   repository: https://github.com/kazeburo/Proclet.git
-version: 0.10
+version: 0.11

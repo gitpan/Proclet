@@ -12,12 +12,12 @@ use IO::Select;
 use Term::ANSIColor;
 
 subtype 'ServiceProcs'
-    => as 'Int',
+    => as 'Int'
     => where { $_ > 0 };
 
 no Mouse::Util::TypeConstraints;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 has '_services' => (
     is => 'ro',
