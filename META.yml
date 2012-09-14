@@ -29,7 +29,8 @@ requires:
   Parallel::Prefork: 0.13
   Term::ANSIColor: 0
   YAML::XS: 0.38
+  parent: 0
 resources:
   license: http://dev.perl.org/licenses/
   repository: https://github.com/kazeburo/Proclet.git
-version: 0.12
+version: 0.13
