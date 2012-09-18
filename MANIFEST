@@ -21,9 +21,11 @@ README
 t/00_compile.t
 t/01_run.t
 t/02_declare.t
-t/DeclareProclet.pl
 t/30proclet/01_basic.t
+t/30proclet/02_process.t
+t/30proclet/procfile/.foreman
 t/30proclet/procfile/Procfile
+t/DeclareProclet.pl
 xt/01_podspell.t
 xt/02_perlcritic.t
 xt/03_pod.t
