@@ -24,7 +24,7 @@ no_index:
 requires:
   Data::Validator: 0
   Getopt::Compact::WithCmd: 0.2
-  Log::Minimal: 0
+  Log::Minimal: 0.14
   Mouse: 0
   Parallel::Prefork: 0.13
   Term::ANSIColor: 0
@@ -33,4 +33,4 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: https://github.com/kazeburo/Proclet.git
-version: 0.19
+version: 0.20
