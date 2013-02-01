@@ -12,7 +12,7 @@ our %REGISTRY;
 sub _proclet() { ## no critic
     return $REGISTRY{caller(1)} ||= {
         env => {},
-        service => {},
+        service => [],
         worker => {},
         color => 0,
     };
@@ -34,16 +34,9 @@ sub service {
     my $tag = shift;
     my @service = @_;
     my $code = ( ref($service[0]) && ref($service[0]) eq 'CODE' )
-        ? $service[0]
-        : sub {
-            my @command = @service;
-            if ( @command == 1 ) {
-                if ( -x "/bin/bash" ) { unshift @command, "/bin/bash", "-c" }
-            }
-            exec(@command);
-            die $!
-        };
-    _proclet->{service}->{$tag} = $code;
+        ? $service[0] 
+        : \@service;
+    push @{_proclet->{service}},[$tag,$code];
 }
 
 sub worker {
@@ -58,7 +51,8 @@ sub run() { ## no critic
         $ENV{$k} = $v;
     }
     my $proclet = Proclet->new(color => _proclet->{color});
-    while (my ($tag, $code) = each %{_proclet->{service}}) {
+    foreach my $service ( @{_proclet->{service}} ) {
+        my ($tag, $code) = @$service;
         $proclet->service(
             tag => $tag,
             code => $code,
