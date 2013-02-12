@@ -33,4 +33,4 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: https://github.com/kazeburo/Proclet.git
-version: 0.21
+version: 0.22

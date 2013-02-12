@@ -1,8 +1,8 @@
 use strict;
 use Test::More;
-use File::Temp qw/tempdir/;
+use File::Temp qw/tempdir tempfile/;
 
-my $logfile = File::Temp::tmpnam();
+my ($tmpfh, $logfile) = tempfile(UNLINK=>0,EXLOCK=>0);
 my $pid = fork();
 $ENV{PROCLET_TESTFILE} = $logfile;
 
@@ -14,7 +14,12 @@ if ( $pid == 0 ) {
     exit;
 }
 
-sleep 2;
+
+for (1..10) {
+    last if -s $logfile > 9;
+    sleep 1;
+}
+
 open(my $fh, $logfile);
 my %logok;
 while( <$fh> ) {
