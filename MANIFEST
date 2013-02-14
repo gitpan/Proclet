@@ -22,6 +22,7 @@ t/00_compile.t
 t/01_run.t
 t/02_declare.t
 t/03_order.t
+t/04_disable_log.t
 t/30proclet/01_basic.t
 t/30proclet/02_process.t
 t/30proclet/procfile/.foreman
