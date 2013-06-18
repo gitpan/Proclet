@@ -14,6 +14,7 @@ $opt{concurrency} = '';
 $opt{procfile} = 'Procfile';
 $opt{envfile} = '';
 $opt{color} = 0;
+$opt{port} = 5000;
 
 my $go = Getopt::Compact::WithCmd->new(
     name => 'proclet',
@@ -50,7 +51,13 @@ my $go = Getopt::Compact::WithCmd->new(
                     \$opt{color},
                     { required => 0 }
                 ], 
-
+                [
+                    [qw/p port/],
+                    'Port number which used as the base for this application. Should be a multiple of 1000',
+                    '=i',
+                    \$opt{port},
+                    { required => 0 }
+                ], 
             ],
         }
    },
@@ -85,16 +92,16 @@ if ( $cmd eq 'start' ) {
     my $services = load_procfile($opt{procfile});
     my $concurrency = parse_concurrency($opt{concurrency});
 
-    die 'no services defined' unless keys %$services;
+    die 'no services defined' unless @$services;
 
-    my $proclet = Proclet->new( color => $opt{color} );
-    for my $process ( keys %$services ) {
-        next if defined $args && $process ne $args;
+    my $proclet = Proclet->new( color => $opt{color}, _base_port => $opt{port} );
+    for my $service ( @$services ) {
+        my ($process, $command) = @$service;
         my $worker = exists $concurrency->{$process} ? $concurrency->{$process} : 1;
-        next if $worker == 0;
+        $worker = 0 if defined $args && $process ne $args;
         $proclet->service(
             tag => $process,
-            code => $services->{$process},
+            code => $command,
             worker => $worker, 
         );
     }
@@ -107,14 +114,14 @@ else {
 
 sub load_procfile {
     my $file = shift;
-    my %services;
+    my @services;
     open(my $fh, '<:utf8', $file) or die "cannot load procfile $file: $!";
     while (my $line = <$fh>) {
-        if (my ($name, $command) = ($line =~ /^([^:]+)\s*:\s*(.+)/)) {
-            $services{$name} = $command;
+        if (my ($name, $command) = ($line =~ /^([^:]+)\s*:\s*(.+)$/)) {
+            push @services, [$name, $command];
         }
     }
-    return \%services;
+    return \@services;
 }
 
 sub load_envfile {
@@ -188,6 +195,10 @@ An alternate Procfile to load, implies -d at the Procfile root
 
 Colored log
 
+=item -p, --port: Num
+
+Port number which used as the base for this application. Should be a multiple of 1000
+
 =back
 
 =head1 PROCFILE
@@ -211,13 +222,17 @@ If a B<.foreman> file exists in the current directory, default options will be r
   concurrency: alpha=0,bravo=1
   color: 1
 
+=head1 PORT ASSIGNMENT
+
+As same as foreman, proclet starts to assign from port 5000 by default. and assigns them in blocks of 100 per service in the order used in your Procfile. You can specify an alternate starting port number with the -p option.
+
 =head1 AUTHOR
 
 Masahiro Nagano E<lt>kazeburo {at} gmail.comE<gt>
 
 =head1 SEE ALSO
 
-L<Proclet>, L<https://github.com/ddollar/foreman>
+L<Proclet>, L<https://github.com/ddollar/foreman>, L<http://blog.daviddollar.org/2011/05/06/introducing-foreman.html>
 
 =head1 LICENSE
 
