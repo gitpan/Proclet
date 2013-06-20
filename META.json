@@ -63,7 +63,7 @@
    "provides" : {
       "Proclet" : {
          "file" : "lib/Proclet.pm",
-         "version" : "0.30"
+         "version" : "0.31"
       },
       "Proclet::Declare" : {
          "file" : "lib/Proclet/Declare.pm"
@@ -80,8 +80,9 @@
          "web" : "https://github.com/kazeburo/Proclet"
       }
    },
-   "version" : "0.30",
+   "version" : "0.31",
    "x_contributors" : [
+      "soh335 <sugarbabe335@gmail.com>",
       "Masahiro Nagano <kazeburo@gmail.com>"
    ]
 }
