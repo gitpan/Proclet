@@ -12,7 +12,7 @@ configure_requires:
   CPAN::Meta::Prereqs: 0
   Module::Build: 0.38
 dynamic_config: 0
-generated_by: 'Minilla/v0.5.3, CPAN::Meta::Converter version 2.130880'
+generated_by: 'Minilla/v0.11.0, CPAN::Meta::Converter version 2.132830'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -27,10 +27,11 @@ no_index:
     - eg
     - examples
     - author
+    - builder
 provides:
   Proclet:
     file: lib/Proclet.pm
-    version: 0.31
+    version: 0.32
   Proclet::Declare:
     file: lib/Proclet/Declare.pm
 requires:
@@ -41,13 +42,15 @@ requires:
   Mouse: 0
   Parallel::Prefork: 0.13
   Term::ANSIColor: 0
+  Time::Crontab: 0.01
   YAML::XS: 0.38
   parent: 0
+  perl: 5.008001
 resources:
   bugtracker: https://github.com/kazeburo/Proclet/issues
   homepage: https://github.com/kazeburo/Proclet
-  repository: https://github.com/kazeburo/Proclet.git
-version: 0.31
+  repository: git://github.com/kazeburo/Proclet.git
+version: 0.32
 x_contributors:
   - 'soh335 <sugarbabe335@gmail.com>'
   - 'Masahiro Nagano <kazeburo@gmail.com>'
