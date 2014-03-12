@@ -31,7 +31,7 @@ no_index:
 provides:
   Proclet:
     file: lib/Proclet.pm
-    version: 0.32
+    version: 0.33
   Proclet::Declare:
     file: lib/Proclet/Declare.pm
 requires:
@@ -41,6 +41,7 @@ requires:
   Log::Minimal: 0.14
   Mouse: 0
   Parallel::Prefork: 0.13
+  String::ShellQuote: 0
   Term::ANSIColor: 0
   Time::Crontab: 0.01
   YAML::XS: 0.38
@@ -50,7 +51,7 @@ resources:
   bugtracker: https://github.com/kazeburo/Proclet/issues
   homepage: https://github.com/kazeburo/Proclet
   repository: git://github.com/kazeburo/Proclet.git
-version: 0.32
+version: 0.33
 x_contributors:
   - 'soh335 <sugarbabe335@gmail.com>'
   - 'Masahiro Nagano <kazeburo@gmail.com>'

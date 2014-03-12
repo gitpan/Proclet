@@ -49,6 +49,7 @@
             "Log::Minimal" : "0.14",
             "Mouse" : "0",
             "Parallel::Prefork" : "0.13",
+            "String::ShellQuote" : "0",
             "Term::ANSIColor" : "0",
             "Time::Crontab" : "0.01",
             "YAML::XS" : "0.38",
@@ -68,7 +69,7 @@
    "provides" : {
       "Proclet" : {
          "file" : "lib/Proclet.pm",
-         "version" : "0.32"
+         "version" : "0.33"
       },
       "Proclet::Declare" : {
          "file" : "lib/Proclet/Declare.pm"
@@ -85,7 +86,7 @@
          "web" : "https://github.com/kazeburo/Proclet"
       }
    },
-   "version" : "0.32",
+   "version" : "0.33",
    "x_contributors" : [
       "soh335 <sugarbabe335@gmail.com>",
       "Masahiro Nagano <kazeburo@gmail.com>"
