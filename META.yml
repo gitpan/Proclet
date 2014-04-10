@@ -12,7 +12,7 @@ configure_requires:
   CPAN::Meta::Prereqs: 0
   Module::Build: 0.38
 dynamic_config: 0
-generated_by: 'Minilla/v0.11.0, CPAN::Meta::Converter version 2.132830'
+generated_by: 'Minilla/v0.14.1, CPAN::Meta::Converter version 2.132830'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -31,7 +31,7 @@ no_index:
 provides:
   Proclet:
     file: lib/Proclet.pm
-    version: 0.33
+    version: 0.34
   Proclet::Declare:
     file: lib/Proclet/Declare.pm
 requires:
@@ -51,7 +51,7 @@ resources:
   bugtracker: https://github.com/kazeburo/Proclet/issues
   homepage: https://github.com/kazeburo/Proclet
   repository: git://github.com/kazeburo/Proclet.git
-version: 0.33
+version: 0.34
 x_contributors:
   - 'soh335 <sugarbabe335@gmail.com>'
   - 'Masahiro Nagano <kazeburo@gmail.com>'
