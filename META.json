@@ -4,7 +4,7 @@
       "Masahiro Nagano <kazeburo {at} gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v0.14.1",
+   "generated_by" : "Minilla/v1.1.0",
    "license" : [
       "perl_5"
    ],
@@ -70,7 +70,7 @@
    "provides" : {
       "Proclet" : {
          "file" : "lib/Proclet.pm",
-         "version" : "0.34"
+         "version" : "0.35"
       },
       "Proclet::Declare" : {
          "file" : "lib/Proclet/Declare.pm"
@@ -87,7 +87,7 @@
          "web" : "https://github.com/kazeburo/Proclet"
       }
    },
-   "version" : "0.34",
+   "version" : "0.35",
    "x_contributors" : [
       "soh335 <sugarbabe335@gmail.com>",
       "Masahiro Nagano <kazeburo@gmail.com>"
